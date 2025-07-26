@@ -3,7 +3,8 @@ library(dplyr)
 
 cat("Step 1: Loading and merging training and test datasets...\n")
 
-# Read training data
+# Read training 
+setwd("./UCI HAR Dataset/")
 subject_train <- read.table("train/subject_train.txt", col.names = "subject")
 X_train <- read.table("train/X_train.txt")
 y_train <- read.table("train/y_train.txt", col.names = "activity")
@@ -90,6 +91,7 @@ tidy_data <- mean_std_data %>%
 cat("Saving tidy dataset...\n")
 
 # Write the tidy dataset to a file
+setwd("..")
 write.table(tidy_data, "tidy_data.txt", row.names = FALSE)
 
 cat("Tidy dataset saved as 'tidy_data.txt'\n")
